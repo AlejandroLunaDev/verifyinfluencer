@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 16, 24, 39; /* #101827 */
+    --background2: 23, 33, 47; /* #17212f */
+    --primary: 18, 185, 129; /* #12b981 */
+    --secondary: 50, 112, 205; /* #3270cd */
+    --neutral-white: 248, 248, 249; /* #f8f8f9 */
+    --gradient-start: 48, 187, 145; /* #30bb91 */
+    --gradient-end: 50, 112, 205; /* #3270cd */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 16, 24, 39; /* #101827 */
+    --background2: 23, 33, 47; /* #17212f */
+    --primary: 18, 185, 129; /* #12b981 */
+    --secondary: 50, 112, 205; /* #3270cd */
+    --neutral-white: 248, 248, 249; /* #f8f8f9 */
+    --gradient-start: 48, 187, 145; /* #30bb91 */
+    --gradient-end: 50, 112, 205; /* #3270cd */
+  }
+}
+
+@layer base {
+  * {
+    /* Usa una clase válida de Tailwind */
+    border-color: var(--neutral-white);
+  }
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--neutral-white));
+  }
+}
