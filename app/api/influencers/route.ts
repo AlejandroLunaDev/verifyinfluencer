@@ -1,4 +1,4 @@
-import connectDB from '../../../lib/mongodb';
+import connectDB from '@/lib/mongodb';
 import InfluencerModel from '../../../models/influencers';
 import { NextRequest, NextResponse } from 'next/server';
 

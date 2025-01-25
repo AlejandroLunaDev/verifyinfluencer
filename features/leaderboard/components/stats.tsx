@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card"
-import { Users, CheckCircle, PieChart } from "lucide-react"
+import { Users, CheckCircle, ChartColumn } from "lucide-react"
 
 interface StatsProps {
   activeInfluencers: number
@@ -22,7 +22,7 @@ export function Stats({ activeInfluencers, verifiedClaims, averageTrustScore }: 
     {
       label: "Average Trust Score",
       value: `${averageTrustScore}%`,
-      icon: PieChart
+      icon: ChartColumn
     }
   ]
 
