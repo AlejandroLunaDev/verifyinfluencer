@@ -48,7 +48,7 @@ export function Leaderboard() {
       : influencers.filter((inf) => inf.category === selectedCategory)
 
   return (
-    <section className=" h-screen flex flex-col gap-5 pt-20">
+    <section className="px-10 h-screen flex flex-col gap-5 pt-20">
       
       <header className="flex flex-col gap-5 py-5">
         <h1 className="text-4xl font-bold tracking-tight">Influencer Trust Leaderboard</h1>
