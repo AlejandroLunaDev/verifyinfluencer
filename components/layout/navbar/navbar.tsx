@@ -14,7 +14,7 @@ export default function Navbar() {
   ));
 
   return (
-    <div className='w-full border-b-2 border-gray-400 text-gray-400 flex justify-between gap-4 px-16 py-5'>
+    <div className='w-full fixed bg-background border-b-2 border-gray-400 text-gray-400 flex justify-between gap-4 px-16 py-5'>
       <Logo />
       <div className='hidden lg:flex items-center gap-20'>
       {Links} 

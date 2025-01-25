@@ -1,8 +1,9 @@
 import { Shield } from 'lucide-react'; // Icono de Lucide React
+import Link from 'next/link';
 
 export default function Logo() {
   return (
-    <div className="flex items-center gap-2">
+    <Link href="/" className="flex items-center gap-2">
       <Shield
         className="w-6 h-6"
         style={{
@@ -26,6 +27,6 @@ export default function Logo() {
           </linearGradient>
         </defs>
       </svg>
-    </div>
+    </Link>
   );
 }
