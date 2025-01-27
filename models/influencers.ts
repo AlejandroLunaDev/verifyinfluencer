@@ -1,39 +1,50 @@
+// models/Influencer.ts
+
 import { Schema, model, models, Document } from "mongoose";
 
-export interface IInfluencer extends Document {
-  name: string;
+// Definir la interfaz para TypeScript
+export interface HealthClaim {
+  claim: string;
   category: string;
-  followers: number;
-  avatar?: string; // Foto o avatar del influencer
-  trustScore?: number;
-  claimsCount?: number;
-  yearlyRevenue?: number; // Ingresos anuales
-  products?: number; // Número de productos recomendados
-  verifiedClaims?: number; // Reclamos verificados
-  activeFilters?: string[]; // Filtros activos
-  description?: string; // Descripción del influencer
-  createdAt?: Date;
-  updatedAt?: Date;
+  status: string;
+  source: string;
+  aiAnalysis?: string;
 }
 
-const InfluencerSchema = new Schema<IInfluencer>(
-  {
-    name: { type: String, required: true },
-    category: { type: String, required: true },
-    followers: { type: Number, required: true },
-    avatar: { type: String }, // URL de la imagen del avatar
-    trustScore: { type: Number, default: 0 },
-    claimsCount: { type: Number, default: 0 },
-    yearlyRevenue: { type: Number, default: 0 },
-    products: { type: Number, default: 0 },
-    verifiedClaims: { type: Number, default: 0 },
-    activeFilters: { type: [String], default: [] },
-    description: { type: String },
-  },
-  {
-    timestamps: true,
-  }
-);
+export interface Influencer extends Document {
+  name: string;
+  username: string;
+  platform: string;
+  followers: number;
+  engagement: string;
+  specialty: string;
+  contact: string;
+  healthClaims: HealthClaim[];
+  trustScore: number;
+}
 
-const Influencer = models.Influencer || model<IInfluencer>("Influencer", InfluencerSchema);
-export default Influencer;
+// Crear el esquema para los healthClaims
+const HealthClaimSchema = new Schema<HealthClaim>({
+  claim: { type: String, required: true },
+  category: { type: String, required: true },
+  status: { type: String, required: true },
+  source: { type: String, default: "No source available" },
+  aiAnalysis: { type: String, default: "No analysis available" },
+});
+
+// Crear el esquema para los influencers
+const InfluencerSchema = new Schema<Influencer>({
+  name: { type: String, required: true },
+  username: { type: String, required: true },
+  platform: { type: String, required: true },
+  followers: { type: Number, required: true },
+  engagement: { type: String, required: true },
+  specialty: { type: String, required: true },
+  contact: { type: String, required: true },
+  healthClaims: { type: [HealthClaimSchema], default: [] },
+  trustScore: { type: Number, required: true },
+});
+
+// Exportar el modelo, evitando definirlo más de una vez
+export const Influencer =
+  models.Influencer || model<Influencer>("Influencer", InfluencerSchema);

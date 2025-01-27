@@ -39,7 +39,9 @@ export function Leaderboard() {
   const stats: LeaderboardStats = {
     activeInfluencers: influencers.length,
     totalVerifiedClaims: claims.length,
-    averageTrustScore: 0
+    averageTrustScore: influencers.length > 0 
+    ? influencers.reduce((sum, inf) => sum + inf.trustScore, 0) / influencers.length 
+    : 0
   }
 
   const filteredInfluencers: Influencer[] =

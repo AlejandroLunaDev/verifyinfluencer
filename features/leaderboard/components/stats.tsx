@@ -8,6 +8,7 @@ interface StatsProps {
 }
 
 export function Stats({ activeInfluencers, verifiedClaims, averageTrustScore }: StatsProps) {
+  console.log("avaraageTrustScore", averageTrustScore)
   const statsData = [
     {
       label: "Active Influencers",

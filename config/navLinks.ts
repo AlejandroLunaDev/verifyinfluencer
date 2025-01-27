@@ -16,7 +16,7 @@ export const navlinks = [
       label: 'Contact',
     },
     {
-      href: '/Admin',
+      href: '/admin-panel',
       label: 'Admin',
     },
   ];
